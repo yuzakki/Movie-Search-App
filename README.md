@@ -23,7 +23,7 @@ The Movie Search App is a web application that allows users to search for movies
 
 ## Demo
 
-You can see a live demo of the app at [Demo](https://moviesarchplus.netlify.app/).
+You can see a live demo of the app at [Demo](https://moviesearchplus.netlify.app/).
 
 ## Installation
 
