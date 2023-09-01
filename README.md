@@ -6,7 +6,6 @@ A simple web application for searching and exploring movies.
 
 - [About](#about)
 - [Features](#features)
-- [Demo](#demo)
 - [Installation](#installation) 
 - [Usage](#usage)
 
