@@ -21,10 +21,6 @@ The Movie Search App is a web application that allows users to search for movies
 - Rate movies
 - Add movies to your favorites list
 
-## Demo
-
-You can see a live demo of the app at [Demo](https://moviesearchplus.netlify.app/).
-
 ## Installation
 
 To run the app locally, follow these steps:
