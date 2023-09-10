@@ -50,4 +50,4 @@ function AppProvider({ children }) {
   );
 }
 
-export { AppProvider }; // Export named exports
+export { AppProvider }; 
