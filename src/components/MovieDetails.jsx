@@ -7,7 +7,7 @@ import Loader from "./Loader";
 import StarRating from "./StarRating";
 import { useData } from "../context/useData";
 
-const KEY = "f84fc31d"
+const KEY = "f84fc31d";
 
 export default function MovieDetails() {
   const { selectedId, handleCloseMovie, handleAddWatched, watched } = useData();
@@ -68,10 +68,27 @@ export default function MovieDetails() {
     function () {
       async function getMovieDetails() {
         setIsLoading(true);
+
+        // const res = await fetch(
+        //   `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+        // );
+
+        // const data = await res.json();
+
+        // Check if the current page is loaded over HTTPS or HTTP
+        const protocol =
+          window.location.protocol === "https:" ? "https" : "http";
+
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          `${protocol}://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
         );
+
+        if (!res.ok) {
+          throw new Error(`Error: ${res.status} - ${res.statusText}`);
+        }
+
         const data = await res.json();
+
         setMovie(data);
         setIsLoading(false);
       }
