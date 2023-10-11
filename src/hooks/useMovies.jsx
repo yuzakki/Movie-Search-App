@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-const KEY = import.meta.env.VITE_OMDB_KEY;
+
+const KEY = "f84fc31d"
 
 console.log(KEY)
 
