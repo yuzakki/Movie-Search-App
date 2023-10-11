@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 
+const KEY = "f84fc31d";
 
-const KEY = "f84fc31d"
-
-console.log(KEY)
+console.log(KEY);
 
 export function useMovies(query) {
   const [movies, setMovies] = useState([]);
@@ -17,15 +16,31 @@ export function useMovies(query) {
           setIsLoading(true);
           setError("");
 
+          // const res = await fetch(
+          //   `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+          // );
+
+          // if (!res.ok)
+          //   throw new Error("Something went wrong with fetching movies");
+
+          // ===========
+
+          // Check if the current page is loaded over HTTPS or HTTP
+          const protocol =
+            window.location.protocol === "https:" ? "https" : "http";
+
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+            `${protocol}://www.omdbapi.com/?apikey=${KEY}&s=${query}`
           );
 
-          if (!res.ok)
-            throw new Error("Something went wrong with fetching movies");
+          if (!res.ok) {
+            throw new Error(`Error: ${res.status} - ${res.statusText}`);
+          }
+
+          // ===========
 
           const data = await res.json();
-          if (data.Response === "False") throw new Error("Movie not found");
+          // if (data.Response === "False") throw new Error("Movie not found");
 
           setMovies(data.Search);
           setError("");
