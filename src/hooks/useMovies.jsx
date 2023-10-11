@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const KEY = "5c4cd2ab";
+const KEY = import.meta.env.VITE_OMDB_KEY;
 
 export function useMovies(query) {
   const [movies, setMovies] = useState([]);
